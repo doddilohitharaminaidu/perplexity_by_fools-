@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perplexity AI — AI-Powered Search</title>
+    <meta name="description" content="AI-powered search engine with real-time web results and conversational chat.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="nav-section">
+                <a href="#" class="nav-item brand" id="brandBtn">
+                    <i class="ph ph-asterisk"></i>
+                    <span>Search</span>
+                </a>
+                <a href="#" class="nav-item computer-link">
+                    <i class="ph ph-desktop"></i>
+                    <span>Computer</span>
+                </a>
+                
+                <div class="nav-divider"></div>
+
+                <a href="#" class="nav-item" id="newThreadBtn">
+                    <i class="ph ph-plus"></i>
+                    <span>New thread</span>
+                </a>
+                <a href="#" class="nav-item" id="historyBtn">
+                    <i class="ph ph-clock-counter-clockwise"></i>
+                    <span>History</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-compass"></i>
+                    <span>Discover</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Spaces</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-trend-up"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-heart"></i>
+                    <span>Health</span>
+                </a>
+                <a href="#" class="nav-item" id="signInBtn">
+                    <i class="ph ph-sign-in"></i>
+                    <span>Sign In</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="recent-header">Recent</div>
+                <div id="threadList">
+                    <div class="recent-text">Recent and active threads will appear here.</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Sidebar Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="ph ph-list"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <div class="chat-history hidden" id="chatHistory">
+                <!-- Chat messages will be appended here -->
+            </div>
+
+            <div class="hero" id="heroSection">
+                <h1 class="logo-text">perplexity</h1>
+                <p class="hero-subtitle">Ask anything. Get answers from the web, powered by AI.</p>
+            </div>
+
+            <div class="search-container" id="searchContainer">
+                <div class="search-box">
+                    <textarea placeholder="Ask anything... (Press Enter to submit)" rows="1" id="searchInput"></textarea>
+                    
+                    <div class="search-bottom-actions">
+                        <div class="left-actions">
+                            <button class="action-btn file-upload" id="uploadBtn" title="Upload PDF"><i class="ph ph-file-pdf"></i></button>
+                            <input type="file" id="pdfFileInput" accept=".pdf" style="display:none">
+                            <button class="action-btn focus-btn">
+                                <i class="ph ph-globe"></i>
+                                Web Search
+                                <i class="ph ph-caret-down"></i>
+                            </button>
+                        </div>
+                        <div class="right-actions">
+                            <button class="action-btn model-btn" id="submitBtn">
+                                Submit <i class="ph ph-paper-plane-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pdf-indicator hidden" id="pdfIndicator">
+                    <i class="ph ph-file-pdf"></i>
+                    <span id="pdfFileName">document.pdf</span>
+                    <span id="pdfPageCount"></span>
+                    <button id="removePdfBtn" title="Remove PDF"><i class="ph ph-x"></i></button>
+                </div>
+
+                <div class="suggestions-section" id="suggestionsSection">
+                    <div class="suggestions-header">
+                        <i class="ph ph-sparkle"></i> Quick Suggestions
+                    </div>
+                    
+                    <div class="suggestion-pills">
+                        <button class="pill" data-query="Create a prototype for a modern portfolio website">
+                            <i class="ph ph-code"></i> Create a prototype
+                        </button>
+                        <button class="pill" data-query="Give me important formulae in physics with explanations">
+                            <i class="ph ph-math-operations"></i> Formulae in Physics
+                        </button>
+                        <button class="pill" data-query="What are the latest breakthroughs in AI and machine learning in 2026?">
+                            <i class="ph ph-brain"></i> Latest in AI
+                        </button>
+                        <button class="pill" data-query="Explain quantum computing in simple terms with real-world examples">
+                            <i class="ph ph-atom"></i> Quantum Computing
+                        </button>
+                    </div>
+
+                    <div class="suggestion-list">
+                        <a href="#" class="list-item" data-query="Give me all important formulae in mathematics for competitive exams">
+                            <i class="ph ph-book-open"></i>
+                            <span>Formulae in Mathematics for exams</span>
+                        </a>
+                        <a href="#" class="list-item" data-query="Compare React, Vue, and Angular and recommend the best one for beginners">
+                            <i class="ph ph-scales"></i>
+                            <span>Compare frontend frameworks</span>
+                        </a>
+                        <a href="#" class="list-item" data-query="What is the current stock market situation and key trends today?">
+                            <i class="ph ph-chart-line-up"></i>
+                            <span>Stock market trends today</span>
+                        </a>
+                        <a href="#" class="list-item" data-query="Give me a complete chemistry formulae sheet for organic and inorganic chemistry">
+                            <i class="ph ph-flask"></i>
+                            <span>Chemistry formulae sheet</span>
+                        </a>
+                        <a href="#" class="list-item" data-query="Write a Python script to build a web scraper for news articles">
+                            <i class="ph ph-terminal"></i>
+                            <span>Build a Python web scraper</span>
+                        </a>
+                        <a href="#" class="list-item" data-query="Explain the theory of relativity with examples and analogies">
+                            <i class="ph ph-planet"></i>
+                            <span>Explain theory of relativity</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sign-in Overlay (hidden by default) -->
+        <div class="modal-overlay hidden" id="signInModal">
+            <div class="modal-backdrop" id="modalBackdrop"></div>
+            <div class="modal-content">
+                <button class="close-btn" id="closeModal"><i class="ph ph-x"></i></button>
+                
+                <div class="modal-header-centered">
+                    <i class="ph ph-asterisk modal-logo"></i>
+                    <h2>Sign in or create an account</h2>
+                    <p>Save and sync your searches</p>
+                </div>
+
+                <div class="auth-buttons">
+                    <button class="social-btn google">
+                        <i class="ph-fill ph-google-logo"></i> Continue with Google
+                    </button>
+                    <button class="social-btn apple">
+                        <i class="ph-fill ph-apple-logo"></i> Continue with Apple
+                    </button>
+                </div>
+
+                <div class="email-auth">
+                    <input type="email" placeholder="Enter your email" class="email-input" id="emailInput">
+                    <button class="email-btn" disabled id="emailBtn">Continue with email</button>
+                </div>
+
+                <a href="#" class="sso-link">Single sign-on (SSO)</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
