@@ -1,0 +1,48 @@
+# Perplexity AI Clone - Frontend Implementation Plan
+
+This plan outlines the steps to build a high-fidelity frontend clone of the Perplexity AI interface shown in the provided screenshot, using vanilla HTML, CSS, and JavaScript.
+
+## Proposed Changes
+
+We will create a structured project focusing on layout, styling (dark theme), and basic interactivity to closely match the provided design.
+
+### Directory Structure: `perplexity` workspace
+
+#### [NEW] index.html
+- The main HTML structure.
+- **Layout**: It will be divided into a main container holding a Left Sidebar (`<aside>`), Main Content area (`<main>`), and a Sign-In Overlay panel.
+- **Sidebar**: Will include navigation items (Search, New thread, History, Discover, Spaces, etc.) using Semantic tags and SVG icons.
+- **Main Area**: Centered "perplexity" logo text, a complex search input box ("Ask anything..."), and a "Try Computer" suggestions section with grid layout.
+- **Sign-In Modal**: Absolute/fixed positioned panel on the right side with social login buttons and an email form.
+
+#### [NEW] styles.css
+- **CSS Variables**: Core theming (dark mode colors, text colors, border colors, fonts). 
+- **Typography & Resets**: Setting up standard fonts (e.g., Inter/Roboto) and removing default margins/paddings.
+- **Flexbox/Grid Layouts**: For sidebar positioning and main content alignment.
+- **Component Styling**: Extensive styling to create the polished, premium look:
+  - Input boxes with focus states.
+  - Interactive hover effects for buttons and links.
+  - The semi-transparent overlay feeling for the right-side sign-in panel.
+
+#### [NEW] script.js
+- **Interactivity**: 
+  - Logic to open/close the Sign-In overlay (e.g., clicking on the 'X').
+  - Basic input handling for the search bar (focus states, dynamic resizing if needed).
+
+## Open Questions
+
+> [!IMPORTANT]
+> - Do you want absolute pixel-perfection for standard screen sizes, or a mostly responsive layout right off the bat?
+> - Are there any specific web fonts (like Inter or Roboto from Google Fonts) you’d prefer to use to match the sleek design, or should I pick an appropriate modern sans-serif stack?
+> - For the SVG icons (sidebar, buttons), I plan to use standard open-source icons (like Phosphor icons or Heroicons) that closely match the visual style. Does that work for you?
+
+## Verification Plan
+
+### Automated Tests
+- N/A for this static frontend phase. I will ensure there are no console errors.
+
+### Manual Verification
+- View the `index.html` file in a browser.
+- Verify that the layout effectively mirrors the screenshot.
+- Verify hover states and modern web design aesthetics are present.
+- Ensure the right sidebar modal is positioned correctly.

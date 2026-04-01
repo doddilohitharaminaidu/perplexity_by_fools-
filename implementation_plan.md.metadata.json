@@ -1,0 +1,7 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Proposed architecture and steps to integrate Flask backend and Gemini API into the application.",
+  "updatedAt": "2026-03-31T15:58:02.036533200Z",
+  "version": "1",
+  "requestFeedback": true
+}

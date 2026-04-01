@@ -1,0 +1,8 @@
+# Perplexity AI Clone Frontend Tasks
+
+- `[/]` Set up file structure (`index.html`, `styles.css`, `script.js`)
+- `[ ]` Define Base CSS (variables, resets, typography)
+- `[ ]` Build Left Sidebar Layout & Styling
+- `[ ]` Build Main Content Area Layout & Styling
+- `[ ]` Build Right Sign-in Modal Overlay
+- `[ ]` Add basic interactivity in JS
